@@ -4,28 +4,31 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
 	<title>Dynamic Localization</title>
 	<link href="Content/bootstrap.css" rel="stylesheet" />
 	<link href="Content/bootstrap-theme.css" rel="stylesheet" />
+
+	<script src="Scripts/require.js" type="text/javascript"></script>
+	<script src="Scripts/config.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		require(['jquery', 'knockout', 'modules/localization'], function ($,ko, Localization) {
+			var localizationModel = new Localization();
+			ko.applyBindings(localizationModel);
+		});
+	</script>
 </head>
 <body>
 <div class="container">
 	<div class="text-center">
-		<h1></h1>
-		<div style="margin-top: 15px;">
-			<button class="btn btn-default" data-bind="click: choosede" >DE</button>
-			<button class="btn btn-default" data-bind="click: chooseen" >EN</button>
-			<button class="btn btn-default" data-bind="click: chooseru" >RU</button>
+		<h1 style="font-size: 52px;" data-bind="localization: language , params: { key: 'Title'}"></h1>
+		<h2 style="font-size: 48px" data-bind="localization: language , params: { key: 'Description', strFormat: { '{0}': '2016' } }"></h2>
+			<div style="margin-top: 15px;">
+				<button class="btn btn-default" data-bind="click: choosede">German</button>
+				<button class="btn btn-default" data-bind="click: chooseen">English</button>
+				<button class="btn btn-default" data-bind="click: chooseru">Русский</button>
+			</div>
 		</div>
 	</div>
-</div>
-<h1 data-bind="localization: language , params: { key: 'HelloKey'}"></h1>
-
-<script src="Scripts/require.js" type="text/javascript"></script>
-<script src="Scripts/config.js" type="text/javascript"></script>
-<script type="text/javascript">
-	require(['modules/start']);
-</script>
 </body>
 </html>

@@ -10,9 +10,9 @@ requirejs.config({
 	},
 
 	paths: {
-		jquery: 'jquery-2.1.4',
+		jquery: 'jquery-1.9.1',
 		bootstrap: 'bootstrap.min',
-		knockout: 'knockout-3.3.0'
+		knockout: 'knockout-3.4.0'
 	}
 
 });

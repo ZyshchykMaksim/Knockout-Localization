@@ -62,16 +62,28 @@
 		function getLocalization(language) {
 			switch (language) {
 				case 'de':
-					self.language({ HelloKey: "Hallo" });
+					self.language({
+						Title: "HALLO",
+						Description: 'IM MOMENT {0} JAHR'
+					});
 					break;
 				case 'en':
-					self.language({ HelloKey: "Hello" });
+					self.language({
+						Title: "HELLO",
+						Description: 'NOW {0} YEAR'
+					});
 					break;
 				case 'ru':
-					self.language({ HelloKey: "Привет" });
+					self.language({
+						Title: "ПРИВЕТ",
+						Description: 'СЕЙЧАС {0} ГОД'
+					});
 					break;
 				default:
-					self.language({ HelloKey: "Hello" });
+					self.language({
+						Title: "HELLO",
+						Description: 'NOW {0} YEAR'
+					});
 					break;
 			}
 		}
@@ -86,5 +98,7 @@
 		self.chooseru = function () {
 			getLocalization('ru');
 		};
+
+		getLocalization();
 	}
 });
